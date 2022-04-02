@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from decouple import config, Csv
 import dj_database_url
+import cloudinary
+import cloudinary.api
+import cloudinary.uploader
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +32,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#images
+cloudinary.config(
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET'),
+    secure=True
+)
 
 # Application definition
 
@@ -41,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'instagram',
     'bootstrap4',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
