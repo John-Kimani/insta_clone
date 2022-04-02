@@ -6,4 +6,4 @@ def index(request):
     '''
     Function for welcome page
     '''
-    return render(request, 'index.html')
+    return render(request, 'timeline.html')
