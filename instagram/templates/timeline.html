@@ -3,10 +3,12 @@
 {% block content %}
     <div class="container container-fluid">
         <div class="card mt-2">
-            <img class="card-img-top" src="..." alt="Card image cap">
+            {% for image in images %}
+            <img class="card-img-top" src="{{ image.image.url }}" alt="{{ image.title }}">
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-          </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock%}
