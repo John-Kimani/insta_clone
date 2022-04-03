@@ -1,4 +1,4 @@
-from email.policy import default
+from django.utils import timezone
 from django.db import models
 
 # import cloudinary
@@ -10,6 +10,9 @@ class Photos(models.Model):
     '''
     title = models.CharField(max_length=20)
     image = CloudinaryField('images/', default='')
+    caption = models.CharField(max_length=200)
+    likes = models.PositiveIntegerField(default=0)
+    date = models.DateTimeField(default=timezone.now)
 
     def save_image(self):
         self.save()
