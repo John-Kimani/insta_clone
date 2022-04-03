@@ -1,0 +1,16 @@
+{%extends "django_registration/base.html"%} 
+{% load bootstrap4 %} 
+
+{% block content %}
+<div class="container container-fluid">
+    <div class="alert alert-success">
+        <p>Successfully Registered</p>
+    </div>
+
+    <div class="form-group">
+        <a href="{% url 'instagram' %}" class="btn btn-primary">Visit timeline</a>
+    </div>
+    
+</div>
+
+{% endblock %}
