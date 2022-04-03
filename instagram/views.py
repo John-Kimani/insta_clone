@@ -18,3 +18,10 @@ def profile_page(request):
     '''
     images = Photos.objects.all()
     return render(request, 'profile.html', {"images":images})
+
+
+def post_items(request):
+    '''
+    View function that enables users to make posts
+    '''
+    return render(request, 'create_posts.html')
