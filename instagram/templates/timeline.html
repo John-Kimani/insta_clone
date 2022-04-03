@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container container-fluid">
@@ -8,6 +9,10 @@
                 <a type="button" class="btn" data-toggle="modal" data-target="#pic{{image.id}}">
                     <img src="{{image.image.url}}" alt="Image" class="img-thumbnail">
                 </a>
+                <div class="reactions">
+                    <img src="static/assets/icons/like.png" alt="">
+                    dmkcmkdc
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="pic{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
