@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'instagram',
     'bootstrap4',
     'cloudinary',
+    'users',
 ]
 
 MIDDLEWARE = [
