@@ -27,3 +27,13 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comments(models.Model):
+    '''
+    Class that handles user comments
+    '''
+    message = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message
