@@ -8,9 +8,9 @@ def index(request):
     '''
     View function for the timeline page
     '''
-    images = Photos.objects.all()
-
-    return render(request, 'timeline.html', {"images":images})
+    # images = Photos.objects.all()
+    caption = Photos.display_all()
+    return render(request, 'timeline.html', {"captions":caption})
 
 def profile_page(request):
     '''

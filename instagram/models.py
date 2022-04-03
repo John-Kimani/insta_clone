@@ -14,6 +14,14 @@ class Photos(models.Model):
     likes = models.PositiveIntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
 
+    @classmethod
+    def display_all(cls):
+        '''
+        Function that dislays post information
+        '''
+        caption = cls.objects.all()
+        return caption
+
     def save_image(self):
         self.save()
 
