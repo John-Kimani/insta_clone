@@ -4,6 +4,15 @@ from django.db import models
 # import cloudinary
 from cloudinary.models import CloudinaryField
 
+class Comments(models.Model):
+    '''
+    Class that handles user comments
+    '''
+    message = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message
 class Photos(models.Model):
     '''
     Class that test and handles images
@@ -13,6 +22,7 @@ class Photos(models.Model):
     caption = models.CharField(max_length=200)
     likes = models.PositiveIntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
+    comments = models.ForeignKey(Comments, on_delete=models.CASCADE)
 
     @classmethod
     def display_all(cls):
@@ -27,13 +37,3 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.title
-
-class Comments(models.Model):
-    '''
-    Class that handles user comments
-    '''
-    message = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.message
