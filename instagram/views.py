@@ -5,8 +5,15 @@ from .models import Photos
 
 def index(request):
     '''
-    Function for welcome page
+    View function for the timeline page
     '''
     images = Photos.objects.all()
 
     return render(request, 'timeline.html', {"images":images})
+
+def profile_page(request):
+    '''
+    View function for users profile page
+    '''
+    images = Photos.objects.all()
+    return render(request, 'profile.html', {"images":images})
