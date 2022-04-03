@@ -1,3 +1,4 @@
+from email.policy import default
 from django.utils import timezone
 from django.db import models
 
@@ -13,6 +14,21 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.message
+
+
+class Profile(models.Model):
+    '''
+    Class that handles user profile
+    '''
+    bio = models.CharField(max_length=80)
+    username = models.CharField(max_length=30)
+    profile_image = CloudinaryField('images/', default='')
+    name = models.CharField(max_length=40)
+
+    def __Str__(self):
+        return self.name
+
+
 class Photos(models.Model):
     '''
     Class that test and handles images
