@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
-from .models import Photos, Profile, Post
+from .models import Photos, Profile, Post, Comments
 from django.contrib.auth.decorators import login_required
-from .forms import UploadForm
+from .forms import UploadForm, CommentForm
 
 
 @login_required(login_url='/accounts/login/')
@@ -20,7 +20,17 @@ def profile_page(request):
     '''
     images = Photos.objects.all()
     profile = Profile.display_profile()
-    return render(request, 'profile.html', {"images":images, "profiles":profile})
+    
+    form = CommentForm
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = Comments()
+            new_comment.message = form.cleaned_data['comment']
+            new_comment.save()
+        return redirect('profile')  
+
+    return render(request, 'profile.html', {"images":images, "profiles":profile, "form": form})
 
 
 def post_items(request):

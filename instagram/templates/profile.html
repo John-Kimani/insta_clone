@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
 <div class="container container-fluid">
@@ -102,8 +103,12 @@
                                 </div>
                             </div>
                         <!-- comment on post -->
+                        
                             <div class="comments ml-4 mr-3">
                                 <p>{{image.comments}}</p>
+                                <!-- {% for comment in post.comment.all %}
+                                <p>{{comment}}</p>
+                                {% endfor %} -->
                                 <div class="leave-comment row">
                                     <ul class="list-unstyled my-auto d-flex flex-row">
                                         <li class="btn mx-2 ml-5">
@@ -112,7 +117,16 @@
                                             </svg>
                                         </li>
                                     </ul>
-                                    <input class="form-control" type="text" placeholder="Write your comment" style="width: 85%;">
+                                    <div class="col-md-6">
+                                        <form action="comment" method="POST">
+                                            {% csrf_token %}
+                                            {{form.as_p}}
+                                        </form>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" value="Comment">
+                                        </div>
+                                    </div>
+                                    <!-- <input class="form-control" type="text" placeholder="Write your comment" style="width: 85%;"> -->
                                 </div>
                             </div>
                         </div>

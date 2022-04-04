@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Comments
 
 class UploadForm(forms.ModelForm):
     '''
@@ -9,3 +9,12 @@ class UploadForm(forms.ModelForm):
         model = Post
         fields = "__all__"
         exclude = ["likes", "date", "comments"]
+
+class CommentForm(forms.ModelForm):
+    '''
+    Class that handles comments
+    '''
+    class Meta:
+        model = Comments
+        fields = "__all__"
+        exclude = ["pub_date"]
