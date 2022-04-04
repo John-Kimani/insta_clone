@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Photos, Profile
 from django.contrib.auth.decorators import login_required
+from .forms import UploadForm
 
 
 @login_required(login_url='/accounts/login/')
@@ -25,4 +26,6 @@ def post_items(request):
     '''
     View function that enables users to make posts
     '''
-    return render(request, 'create_posts.html')
+    form = UploadForm
+    caption = Photos.display_all()
+    return render(request, 'create_posts.html', {"posts":caption, "form": form})
