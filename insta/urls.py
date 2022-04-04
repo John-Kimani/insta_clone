@@ -19,8 +19,8 @@ from instagram import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.welcome, name='welcome'),
-    path('', include('instagram.urls')),
+    path('', views.welcome, name='welcome'),
+    path('app/', include('instagram.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     # path('logout/', views.LogoutView.as_view(), {"nextpage": '/'})
