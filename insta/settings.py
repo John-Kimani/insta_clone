@@ -29,7 +29,10 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#development
+# ALLOWED_HOSTS = []
+#production
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 #images
 cloudinary.config(
