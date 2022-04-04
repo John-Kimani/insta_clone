@@ -57,8 +57,22 @@ class Photos(models.Model):
         caption = cls.objects.all()
         return caption
 
-    def save_image(self):
+    def save_post(self):
         self.save()
+
+    def __str__(self):
+        return self.title
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=20)
+    image = CloudinaryField('images/', default='')
+    caption = models.CharField(max_length=200)
+
+    @classmethod
+    def display_posts(cls):
+        posts = cls.objects.all()
+        return posts
 
     def __str__(self):
         return self.title

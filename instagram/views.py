@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Photos, Profile
 from django.contrib.auth.decorators import login_required
 from .forms import UploadForm
@@ -26,6 +26,13 @@ def post_items(request):
     '''
     View function that enables users to make posts
     '''
-    form = UploadForm
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('instagram')
+    else:
+        form = UploadForm()
+        
     caption = Photos.display_all()
     return render(request, 'create_posts.html', {"posts":caption, "form": form})

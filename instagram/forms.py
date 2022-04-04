@@ -1,11 +1,11 @@
 from django import forms
-from .models import Photos
+from .models import Post
 
 class UploadForm(forms.ModelForm):
     '''
     Class that handles forms
     '''
     class Meta:
-        model = Photos
+        model = Post
         fields = "__all__"
-        excude = {"likes"}
+        exclude = ["likes", "date", "comments"]
