@@ -2,7 +2,12 @@ from django.shortcuts import redirect, render
 from .models import Photos, Profile, Post, Comments
 from django.contrib.auth.decorators import login_required
 from .forms import UploadForm, CommentForm
+from django.contrib.auth import logout
 
+
+def welcome(request):
+    
+    return render(request, "welcome.html")
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -14,6 +19,7 @@ def index(request):
     post = Post.display_posts()
     return render(request, 'timeline.html', {"captions":caption, "posts":post})
 
+@login_required(login_url='/accounts/login/')
 def profile_page(request):
     '''
     View function for users profile page
@@ -32,7 +38,7 @@ def profile_page(request):
 
     return render(request, 'profile.html', {"images":images, "profiles":profile, "form": form})
 
-
+@login_required(login_url='/accounts/login/')
 def post_items(request):
     '''
     View function that enables users to make posts
@@ -49,3 +55,7 @@ def post_items(request):
         return redirect('instagram')
     
     return render(request, 'create_posts.html', {"form": form})
+
+def logout_current_user(request):
+
+    return render(request, "logout.html")

@@ -148,4 +148,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REQUIRED_URL = 'instagram'
+LOGIN_REQUIRED_URL = ''
+REGISTER_REDIRECT_URL=''

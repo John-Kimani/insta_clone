@@ -10,20 +10,16 @@
         </div>
         <div class="col-md-8">
             <div class="navbar-collapse" id="navbarSupporedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <h4>Username: {{profile.username}}</h4>
-                    </li>
-                    <li class="nav-item">
+                <h2>{{profile.username}}</h2>
+                <ul class="list-unstyled my-auto d-flex flex-row">
+                    <li class="nav-item btn">
                         <p>Followers</p>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item btn">
                         <p>Following</p>
                     </li>
-                    <li class="nav-item">
-                        <p>{{profile.bio}}</p>
-                    </li>
                 </ul>
+                <p>{{profile.bio}}</p>
             </div>
         </div>
     </div>
