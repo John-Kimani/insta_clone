@@ -11,7 +11,8 @@ def index(request):
     '''
     # images = Photos.objects.all()
     caption = Photos.display_all()
-    return render(request, 'timeline.html', {"captions":caption})
+    post = Post.display_posts()
+    return render(request, 'timeline.html', {"captions":caption, "posts":post})
 
 def profile_page(request):
     '''
