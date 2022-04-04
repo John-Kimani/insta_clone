@@ -2,15 +2,16 @@
 
 {% block content %}
 <div class="container container-fluid">
+    {% for profile in profiles %}
     <div class="row">
         <div class="col-md-4">
-            <img src="#" alt="profile image">
+            <img src="{{profile.profile_image.url}}" alt="{{profile.name}}" class="rounded-circle img-thumbnail" style="height: 200px; width: 200px;">
         </div>
         <div class="col-md-8">
             <div class="navbar-collapse" id="navbarSupporedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <h4>Username</h4>
+                        <h4>Username: {{profile.username}}</h4>
                     </li>
                     <li class="nav-item">
                         <p>Followers</p>
@@ -18,18 +19,14 @@
                     <li class="nav-item">
                         <p>Following</p>
                     </li>
+                    <li class="nav-item">
+                        <p>{{profile.bio}}</p>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <!-- empty -->
-            </div>
-            <div class="col-md-8">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, ducimus voluptates iusto hic eum sapiente ex praesentium. Vero sequi quam totam molestias deserunt tempore iste quis, quibusdam neque officiis nihil?</p>
-            </div>
-        </div>
     </div>
+    {% endfor %}
     <!-- profile section ends -->
     <div class="card-columns">
             {% for image in images %}

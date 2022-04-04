@@ -1,4 +1,4 @@
-from email.policy import default
+
 from django.utils import timezone
 from django.db import models
 
@@ -25,8 +25,17 @@ class Profile(models.Model):
     profile_image = CloudinaryField('images/', default='')
     name = models.CharField(max_length=40)
 
-    def __Str__(self):
-        return self.name
+    @classmethod
+    def display_profile(cls):
+        '''
+        Function that displays user profile
+        '''
+        profile = cls.objects.all()
+        return profile
+
+
+    def __str__(self):
+        return self.username
 
 
 class Photos(models.Model):

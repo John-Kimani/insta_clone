@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Photos
+from .models import Photos, Profile
 from django.contrib.auth.decorators import login_required
 
 
@@ -17,7 +17,8 @@ def profile_page(request):
     View function for users profile page
     '''
     images = Photos.objects.all()
-    return render(request, 'profile.html', {"images":images})
+    profile = Profile.display_profile()
+    return render(request, 'profile.html', {"images":images, "profiles":profile})
 
 
 def post_items(request):
