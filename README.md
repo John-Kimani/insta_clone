@@ -12,7 +12,7 @@ This is a instagram application clone developed by Django framework and PostgreS
 + [Behaviour Driven Development](#behavior-driven-development)
 + [Authors Info](#author)
 ## App screenshot
-![insta-clone](#)
+![insta-clone](/static/images/kimperria-insta-clone.herokuapp.com_app_profile_.png)
 ## Features
 
 - Django 4.0+
