@@ -17,7 +17,8 @@ def index(request):
     # images = Photos.objects.all()
     caption = Photos.display_all()
     post = Post.display_posts()
-    return render(request, 'timeline.html', {"captions":caption, "posts":post})
+    profile = Profile.display_profile()
+    return render(request, 'timeline.html', {"captions":caption, "posts":post, "profiles":profile})
 
 @login_required(login_url='/accounts/login/')
 def profile_page(request):
