@@ -29,7 +29,7 @@
             {% for image in images %}
                     <!-- Button trigger modal -->
                 <a type="button" class="btn" data-toggle="modal" data-target="#pic{{image.id}}">
-                    <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail" style="height: 300px; width: 300px;">
+                    <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail" style="height: 300px; width: 300px; object-fit: contain; object-position: 50% 50%;">
                 </a>
         
                 <!-- Modal -->
@@ -60,7 +60,7 @@
                         </button> -->
                         </div>
                         <div class="modal-body">
-                        <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbanail" style="height: 300px; width: 100%;">
+                        <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbanail" style="height: 300px; width: 100%; object-fit: scale-down;">
                         <!-- post reactions -->
                             <div class="reactions">
                                 <div class="row">
