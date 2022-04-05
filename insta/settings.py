@@ -30,9 +30,9 @@ SECRET_KEY = 'SECRET_KEY'
 DEBUG = True
 
 #development
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 #production
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 #images
 cloudinary.config(
