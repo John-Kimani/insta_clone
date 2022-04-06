@@ -68,9 +68,9 @@ class Post(models.Model):
     title = models.CharField(max_length=20)
     image = CloudinaryField('images/', default='')
     caption = models.CharField(max_length=200)
-    likes = models.PositiveIntegerField(default=0)
+    likes = models.PositiveIntegerField(default=0, null=True)
     date = models.DateTimeField(default=timezone.now)
-    comments = models.ForeignKey(Comments, on_delete=models.CASCADE)
+    comments = models.ForeignKey(Comments,null=True, on_delete=models.CASCADE)
 
     @classmethod
     def display_posts(cls):

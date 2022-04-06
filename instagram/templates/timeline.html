@@ -27,7 +27,7 @@
             </div>
                 <!-- Button trigger modal -->
                 <a type="button" class="btn" data-toggle="modal" data-target="#pic{{image.id}}">
-                    <img src="{{post.image.url}}" alt="{{image.title}}" class="img-thumbnail rounded-lg">
+                    <img src="{{post.image.url}}" alt="{{image.title}}" style="height: 400px; object-fit: contain;"  class="img-thumbnail rounded-lg">
                 </a>
                 <div class="reactions">
                     <div class="row">
@@ -194,7 +194,7 @@
             </div>
                 <!-- Button trigger modal -->
                 <a type="button" class="btn" data-toggle="modal" data-target="#pic{{image.id}}">
-                    <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail rounded-lg" style="height: 600px;">
+                    <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail rounded-lg" style="height: 400px; object-fit: cover;">
                 </a>
                 <div class="reactions">
                     <div class="row">
@@ -276,7 +276,7 @@
                         </button> -->
                         </div>
                         <div class="modal-body">
-                            <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail rounded-lg">
+                            <img src="{{image.image.url}}" alt="{{image.title}}" class="img-thumbnail" style="height: 250px; width: 100%; object-fit: contain; object-position: center;">
                             <div class="reactions">
                                 <div class="row">
                                     <div class="col-md-3 ml-5">
